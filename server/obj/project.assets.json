@@ -3375,11 +3375,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Documents\\רחלי\\תכנות ו\\practicode\\practicode3\\ToDoList\\TodoApi\\server\\TodoApi.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Documents\\רחלי\\תכנות ו\\practicode\\practicode3\\ToDoList\\TodoList\\server\\TodoApi.csproj",
       "projectName": "TodoApi",
-      "projectPath": "C:\\Users\\USER\\Documents\\רחלי\\תכנות ו\\practicode\\practicode3\\ToDoList\\TodoApi\\server\\TodoApi.csproj",
+      "projectPath": "C:\\Users\\USER\\Documents\\רחלי\\תכנות ו\\practicode\\practicode3\\ToDoList\\TodoList\\server\\TodoApi.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Documents\\רחלי\\תכנות ו\\practicode\\practicode3\\ToDoList\\TodoApi\\server\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Documents\\רחלי\\תכנות ו\\practicode\\practicode3\\ToDoList\\TodoList\\server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

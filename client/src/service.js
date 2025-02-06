@@ -1,40 +1,48 @@
 import axios from 'axios';
-axios.defaults.baseURL = "http://localhost:5224";
-// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-axios.defaults.baseURL = "http://localhost:5224";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+console.log(process.env.REACT_APP_API_URL);
 
+
+// הוספת Interceptor לתפיסת שגיאות ורישום ללוג
 axios.interceptors.response.use(
-  (response) => response, 
-  (error) => {
-    console.error("Axios Error:", error.response?.status, error.response?.data);
-    return Promise.reject(error);
+  response => response, // מחזיר את התגובה כרגיל אם אין שגיאה
+  error => {
+    console.error('API Error:', {
+      message: error.message,
+      status: error.response?.status,
+      data: error.response?.data
+    });
+    return Promise.reject(error); 
   }
 );
 
 export default {
   getTasks: async () => {
-    const result = await axios.get(`/items`)    
+    const result = await axios.get('/tasks');
+    if (Array.isArray(result.data))
+    return result.data
+    else {
+      alert("no tasks");
+      return [];
+    }
+  },
+
+  addTask: async (name) => {
+    console.log('addTask', name);
+    const result = await axios.post('/tasks', { Name:name , isComplete:false });
     return result.data;
   },
 
-  addTask: async(name)=>{
-    console.log('addTask', name)
-    const result=await axios.post(`/items`, {name})
+  setCompleted: async (id, isComplete) => {
+    console.log('setCompleted', { id, isComplete });
+    const result = await axios.put(`/tasks/${id}`, { isComplete: isComplete} );
     return result.data;
   },
 
-  setCompleted: async(id, isComplete)=>{
-    console.log('setCompleted', {id, isComplete})
-    const result=await axios.put(`/items/${id}`, {isComplete})
-    console.log(result.data)
+  deleteTask: async (id) => {
+    console.log('deleteTask');
+    const result = await axios.delete(`/tasks/${id}`);
     return result.data;
-  },
-
-  deleteTask:async(id)=>{
-    console.log('deleteTask')
-   const result= await axios.delete(`/items/${id}`)
-    return result.data;
-  },
+  }
 };
