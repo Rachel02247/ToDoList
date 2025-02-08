@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+axios.defaults.baseURL = process.env.REACT_APP_API_URL | "http://localhost:5224";
 console.log(process.env.REACT_APP_API_URL);
 
 
-// הוספת Interceptor לתפיסת שגיאות ורישום ללוג
 axios.interceptors.response.use(
-  response => response, // מחזיר את התגובה כרגיל אם אין שגיאה
+  response => response, 
   error => {
     console.error('API Error:', {
       message: error.message,

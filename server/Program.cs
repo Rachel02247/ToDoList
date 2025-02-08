@@ -33,6 +33,8 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty; 
 });
 
+app.MapGet("/", () => "ToDoList API is running");
+
 app.MapGet("/items", async (ToDoDbContext db) =>
 {
     return await db.Items.ToListAsync();
