@@ -5,7 +5,7 @@ EXPOSE 443
 
 ENV ASPNETCORE_URLS=http://+:80
 
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG configuration=Release
 WORKDIR /src
 COPY ["TodoApi.csproj", "./"]
