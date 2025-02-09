@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL | "http://localhost:5224";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 console.log(process.env.REACT_APP_API_URL);
 
 
 axios.interceptors.response.use(
   response => response, 
   error => {
-    console.error('API Error:', {
+    console.log('API Error:', {
       message: error.message,
       status: error.response?.status,
       data: error.response?.data
